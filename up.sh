@@ -13,4 +13,4 @@ terraform apply -auto-approve
 
 echo ""
 echo "Server IP: $(terraform output -raw server_ip)"
-echo "Connect with: autossh -M 0 -o StrictHostKeyChecking=no root@$(terraform output -raw server_ip)"
+echo "Connect with: autossh -M 0 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -L 11000:localhost:11000 root@$(terraform output -raw server_ip)"
